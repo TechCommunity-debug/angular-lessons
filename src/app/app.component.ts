@@ -9,8 +9,12 @@ import { DUMMY_USERS } from './dummy-users';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, UserComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   users = DUMMY_USERS;
+
+  onSelectUser(id: string) {
+    console.log('user id :>> ', id);
+  }
 }
