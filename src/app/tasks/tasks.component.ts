@@ -58,7 +58,6 @@ export class TasksComponent {
   }
 
   onAddTask(taskData: NewTaskData) {
-    // unshift: js method to add item in start of array.
     this.tasks.unshift({
       id: new Date().getTime().toString(),
       userId: this.userId,
