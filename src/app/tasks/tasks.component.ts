@@ -16,17 +16,7 @@ export class TasksComponent {
   @Input({ required: true }) name!: string;
   isAddingTask = false;
 
-  // long cut:
-  // private taskService: TasksService;
-
-  // constructor(taskService: TasksService) {
-  //   this.taskService = taskService;
-  // }
-
-  // short cut (by add private or public keyword)
-  // This will automatically create property of same name.
-  constructor(private taskService: TasksService) {
-  }
+  constructor(private taskService: TasksService) {}
 
   get selectedUserTasks() {
     return this.taskService.getUserTasks(this.userId);
@@ -38,11 +28,7 @@ export class TasksComponent {
     this.isAddingTask = true;
   }
 
-  onCancelTask() {
-    this.isAddingTask = false;
-  }
-
-  onAddTask(taskData: NewTaskData) {
+  onCloselAddTask() {
     this.isAddingTask = false;
   }
 }
