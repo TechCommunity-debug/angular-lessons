@@ -16,15 +16,14 @@ export class NewTaskComponent {
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
-  // D.I. using inject() function.
-  private taskService = inject(TasksService);
+  private tasksService = inject(TasksService);
 
   onCancel() {
     this.close.emit();
   }
 
   onSubmit() {
-    this.taskService.addTask(
+    this.tasksService.addTask(
       {
         title: this.enteredTitle,
         summary: this.enteredSummary,
