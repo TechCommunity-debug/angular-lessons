@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { NewTaskData } from './task/task.model';
-import { JSDocComment } from '@angular/compiler';
 
 @Injectable({ providedIn: 'root' })
 export class TasksService {
