@@ -6,8 +6,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { UserComponent } from './user/user.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent],
   bootstrap: [AppComponent],
-  imports: [BrowserModule, HeaderComponent, TasksComponent, UserComponent]
+  imports: [BrowserModule, TasksComponent, UserComponent]
 })
 export class AppModule {}
