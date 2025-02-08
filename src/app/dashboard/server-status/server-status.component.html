@@ -4,6 +4,20 @@
   'status-offline': currentStatus === 'offline',
   'status-unknown': currentStatus === 'unknown',
 }">
+<!--
+In above div tag add
+
+* Single style binding.
+[style.fontSize]="'64px'"
+
+* Multiple style binding.
+[style]="{
+    'font-size': '64px',
+    'backgroundColor': 'lightblue',
+  }"
+* You can use camelCase synatax also like 'fontSize':'64px', to aviod (-), or using quotes.
+
+-->
 @if (currentStatus === 'online') {
 <p>Servers are online</p>
 <p>All systems are operational.</p>
