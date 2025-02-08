@@ -12,10 +12,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewTicketComponent {
   // You can see `type` of the template variable, by hovering over it html template file.
-  onSubmit(titleElement: HTMLInputElement) {
-    //console.log(titleInput);
-    console.dir(titleElement);
-    const enteredTitle = titleElement.value;
-    console.log('ENTERED TITLE: ' + enteredTitle);
+  onSubmit(title: string, ticketText: string) {
+    console.log('title :>> ', title);
+    console.log('ticketText :>> ', ticketText);
   }
 }
