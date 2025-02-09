@@ -1,5 +1,7 @@
 import {
   Component,
+  contentChild,
+  ContentChild,
   ElementRef,
   HostBinding,
   HostListener,
@@ -15,23 +17,33 @@ import {
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
   encapsulation: ViewEncapsulation.None,
-  // host: {
-  //   class: 'control',
-  //   '(click)': 'onClick()'
-  // },
+  host: {
+    class: 'control',
+    '(click)': 'onClick()',
+  },
 })
 export class ControlComponent {
-  @HostBinding('class') className = 'control';
-  @HostListener('click') onClick() {
-    console.log('clicked');
-    console.log(this.el);
-  }
+  // @HostBinding('class') className = 'control';
+  // @HostListener('click') onClick() {
+  //   console.log('clicked');
+  //   console.log(this.el);
+  // }
 
   private el = inject(ElementRef);
 
   label = input.required<string>();
 
-  // onClick() {
-  //   console.log('clicked');
-  // }
+  @ContentChild('input') private control?: ElementRef<
+    HTMLInputElement | HTMLTextAreaElement
+  >;
+
+  // private control =
+  //   contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
+  onClick() {
+    console.log('clicked');
+    console.log('this.el :>> ', this.el);
+    console.log('this.control :>> ', this.control);
+    // console.log('this.control :>> ', this.control());
+  }
 }
