@@ -1,8 +1,8 @@
 <div [class]="{
   status: true,
-  'status-online': currentStatus === 'online',
-  'status-offline': currentStatus === 'offline',
-  'status-unknown': currentStatus === 'unknown',
+  'status-online': currentStatus() === 'online',
+  'status-offline': currentStatus() === 'offline',
+  'status-unknown': currentStatus() === 'unknown',
 }">
 <!--
 In above div tag add
@@ -18,11 +18,11 @@ In above div tag add
 * You can use camelCase synatax also like 'fontSize':'64px', to aviod (-), or using quotes.
 
 -->
-@if (currentStatus === 'online') {
+@if (currentStatus() === 'online') {
 <p>Servers are online</p>
 <p>All systems are operational.</p>
-} @else if (currentStatus === 'offline') {
-<p>Servers are {{currentStatus}}</p>
+} @else if (currentStatus() === 'offline') {
+<p>Servers are {{currentStatus()}}</p>
 <p>Functionality should be restored soon.</p>
 } @else {
 <p>Server status is unknown</p>
