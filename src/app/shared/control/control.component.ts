@@ -1,5 +1,6 @@
 import {
-  AfterContentInit,
+  afterRender,
+  afterNextRender,
   Component,
   contentChild,
   ContentChild,
@@ -9,6 +10,7 @@ import {
   inject,
   input,
   ViewEncapsulation,
+  AfterContentInit,
 } from '@angular/core';
 
 @Component({
@@ -29,6 +31,16 @@ export class ControlComponent implements AfterContentInit {
   //   console.log('clicked');
   //   console.log(this.el);
   // }
+
+  constructor() {
+    afterRender(() => {
+      console.log('afterRender');
+    });
+
+    afterNextRender(() => {
+      console.log('afterNextRender');
+    });
+  }
 
   private el = inject(ElementRef);
 
