@@ -1,4 +1,6 @@
 import {
+  afterRender,
+  afterNextRender,
   Component,
   contentChild,
   ContentChild,
@@ -28,6 +30,16 @@ export class ControlComponent {
   //   console.log('clicked');
   //   console.log(this.el);
   // }
+
+  constructor() {
+    afterRender(() => {
+      console.log('afterRender');
+    });
+
+    afterNextRender(() => {
+      console.log('afterNextRender');
+    });
+  }
 
   private el = inject(ElementRef);
 
