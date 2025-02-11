@@ -8,7 +8,7 @@ import { Directive, input } from '@angular/core';
   },
 })
 export class SafeLinkDirective {
-  queryParam = input('myapp');
+  appSafeLink = input('myapp');
 
   constructor() {
     console.log('SafeLinkDirective is active!');
@@ -20,7 +20,7 @@ export class SafeLinkDirective {
     if (wantsToLeave) {
                         // Type casting.
       const address = (event.target as HTMLAnchorElement).href;
-      (event.target as HTMLAnchorElement).href = address + '?from=' + this.queryParam();
+      (event.target as HTMLAnchorElement).href = address + '?from=' + this.appSafeLink();
       return;
     }
 
