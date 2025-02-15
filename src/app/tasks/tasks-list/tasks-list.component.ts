@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 
 import { TaskItemComponent } from './task-item/task-item.component';
 import { TasksService } from '../task.service';
@@ -12,8 +12,26 @@ import { TasksService } from '../task.service';
 })
 export class TasksListComponent {
   private taskService = inject(TasksService);
-  selectedFilter = signal<string>('all');
-  tasks = this.taskService.allTasks;
+  private selectedFilter = signal<string>('all');
+  tasks = computed(() => {
+    console.log('this.taskService.allTasks() :>> ', this.taskService.allTasks());
+    switch (this.selectedFilter()) {
+      case 'open':
+        return this.taskService
+          .allTasks()
+          .filter((task) => task.status === 'OPEN');
+      case 'in-progress':
+        return this.taskService
+          .allTasks()
+          .filter((task) => task.status === 'IN_PROGRESS');
+      case 'done':
+        return this.taskService
+          .allTasks()
+          .filter((task) => task.status === 'DONE');
+      default:
+        return this.taskService.allTasks();
+    }
+  });
 
   onChangeTasksFilter(filter: string) {
     this.selectedFilter.set(filter);
