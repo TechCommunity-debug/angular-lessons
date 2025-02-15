@@ -4,6 +4,7 @@ import { Task, TaskStatus } from './task.model';
 @Injectable({
   providedIn: 'root',
 })
+// Comment above decorator and uncomment code in main.ts.
 export class TasksService {
   private tasks = signal<Task[]>([]);
 
