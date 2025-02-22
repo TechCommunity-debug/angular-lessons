@@ -4,6 +4,7 @@ import { PlacesContainerComponent } from '../places-container/places-container.c
 import { PlacesComponent } from '../places.component';
 import { signal, inject, DestroyRef } from '@angular/core';
 import { PlacesService } from '../places.service';
+import { Place } from '../place.model';
 
 @Component({
   selector: 'app-user-places',
@@ -33,5 +34,11 @@ export class UserPlacesComponent implements OnInit {
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
     });
+  }
+
+  onRemovePlaces(place: Place) {
+    const subscription = this.placesService
+      .removeUserPlace(place)
+      .subscribe({});
   }
 }
