@@ -14,5 +14,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AvailablePlacesComponent {
   places = signal<Place[] | undefined>(undefined);
+  //step 2: inject HttpClient service.
   private httpClient = inject(HttpClient);
 }
