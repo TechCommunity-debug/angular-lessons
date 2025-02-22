@@ -49,8 +49,8 @@ export class AvailablePlacesComponent implements OnInit {
     //     },
     //   });
 
-    // this.destroyRef.onDestroy(() => {
-    //   subscription.unsubscribe();
-    // });
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
   }
 }
