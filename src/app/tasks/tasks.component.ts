@@ -13,6 +13,7 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent {
   userId = input.required<string>();
+  order = input<'asc' | 'desc'>();
   private taskService = inject(TasksService);
   userTasks = computed(() =>
     this.taskService.allTasks().filter((task) => task.userId === this.userId())
