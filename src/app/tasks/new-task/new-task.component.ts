@@ -1,8 +1,8 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CanDeactivateFn, Router, RouterLink } from '@angular/router';
 
 import { TasksService } from '../tasks.service';
-import { CanDeactivateFn, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-new-task',
@@ -37,20 +37,12 @@ export class NewTaskComponent {
   }
 }
 
-export const canLeaveEditPage: CanDeactivateFn<NewTaskComponent> = (
-  component
-) => {
+export const canLeaveEditPage: CanDeactivateFn<NewTaskComponent> = (component) => {
   if (component.submitted) {
     return true;
   }
-  if (
-    component.enteredTitle() ||
-    component.enteredDate() ||
-    component.enteredSummary()
-  ) {
-    return window.confirm(
-      'Do you really want to leave? You will lose the entered data.'
-    );
+  if (component.enteredTitle() || component.enteredDate() || component.enteredSummary()) {
+    return window.confirm('Do you really want to leave? You will lose the entered data.')
   }
   return true;
-};
+}
